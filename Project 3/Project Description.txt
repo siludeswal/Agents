@@ -1,0 +1,85 @@
+Medical AI Assistant
+
+An intelligent AI-powered Medical Assistant built using LangGraph, Groq LLM, Tavily Search, and Streamlit that analyzes user symptoms, detects emergencies, predicts diseases, recommends specialists, finds nearby hospitals, and generates comprehensive medical reports.
+
+Features
+Extracts symptoms from natural language input.
+Detects whether the case is an emergency.
+Predicts possible diseases with confidence scores.
+Provides reasoning behind disease predictions.
+Recommends appropriate medical specialists.
+Extracts the user's address from the query.
+Finds nearby emergency hospitals using Tavily Search.
+Generates structured and easy-to-understand medical reports.
+Interactive web interface using Streamlit.
+Technology Stack
+Agent Orchestration: LangGraph
+Large Language Model: Groq (Llama 3.1-8B Instant)
+Search Engine: Tavily Search API
+Frontend: Streamlit
+Programming Language: Python
+Environment Management: python-dotenv
+Project Structure
+
+Medical-AI-Assistant/
+│
+├── app.py
+├── model.py
+├── assistant.ipynb
+├── requirements.txt
+├── .env
+└── README.md
+
+The Streamlit application collects symptom and address information from the user and generates a complete medical report.
+
+The backend integrates multiple AI capabilities for symptom extraction, emergency detection, disease prediction, specialist recommendation, hospital discovery, and final report generation.
+
+Installation
+Clone the repository
+
+git clone https://github.com/your-username/Medical-AI-Assistant.git
+
+cd Medical-AI-Assistant
+
+Install dependencies
+
+pip install -r requirements.txt
+
+Add Environment Variables
+
+Create a .env file and add:
+
+GROQ_API_KEY=your_groq_api_key
+
+TAVILY_API_KEY=your_tavily_api_key
+
+Run the application
+
+streamlit run app.py
+
+Example Input
+
+I have severe chest pain radiating to my left arm since morning.
+I live in Sector 22, Gurugram.
+
+Example Output
+Symptoms Identified
+Emergency Status
+Possible Diseases with Confidence Scores
+Supporting Clinical Facts
+Recommended Specialist
+Nearby Hospitals
+Comprehensive Medical Report
+Future Improvements
+GPS-based automatic location detection
+Google Maps integration
+Medical literature-based RAG
+Appointment booking support
+Electronic Health Record (EHR) integration
+Multilingual support
+Voice-enabled interaction
+Disclaimer
+
+This project is intended for educational and research purposes only. It does not provide professional medical advice, diagnosis, or treatment. Always consult qualified healthcare professionals for medical concerns.
+
+⭐ If you found this project useful, consider giving it a star on GitHub!
