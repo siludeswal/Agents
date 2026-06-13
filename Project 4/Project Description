@@ -1,0 +1,38 @@
+
+### AI-Powered Fact-Checking Assistant using LangGraph
+
+Developed an intelligent fact-checking assistant that leverages Agentic AI workflows to verify user claims using real-time web evidence. The application classifies incoming queries as either casual conversations or fact-checking requests and dynamically routes them through specialized workflows using LangGraph's conditional graph architecture.
+
+For fact-checking tasks, the assistant retrieves relevant information from trusted web sources, analyzes the collected evidence using a Large Language Model, and generates a concise verification report. The system also maintains conversational memory to provide context-aware interactions across multiple turns.
+
+Built with a user-friendly Gradio chat interface, the project demonstrates practical implementation of LLM orchestration, tool integration, memory management, and multi-step reasoning in real-world AI applications.
+
+### Key Features
+
+* 🔹 Intelligent query classification (Casual Chat vs. Fact Check)
+* 🔹 Conditional routing using LangGraph
+* 🔹 Real-time web evidence retrieval
+* 🔹 LLM-powered claim verification and reasoning
+* 🔹 Multi-turn conversation memory
+* 🔹 Interactive Gradio chat interface
+* 🔹 Modular and scalable agent architecture
+
+### Tech Stack
+
+* **Python**
+* **LangGraph**
+* **LangChain**
+* **Groq (Llama 3.1 8B Instant)**
+* **Tavily Search API**
+* **Gradio**
+* **InMemorySaver (Checkpointing & Memory)**
+
+### Impact
+
+This project showcases my ability to design and build end-to-end Agentic AI systems by combining Large Language Models with external tools and workflow orchestration. It highlights practical skills in LLM application development, prompt engineering, state management, and creating production-oriented AI solutions that address the growing challenge of misinformation.
+
+---
+
+### One-Line Resume Description
+
+**Built an Agentic AI Fact-Checking Assistant using LangGraph, Groq LLM, and Tavily Search that classifies user queries, retrieves real-time evidence from the web, and generates context-aware verification reports through an interactive chat interface.**
