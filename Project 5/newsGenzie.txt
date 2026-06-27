@@ -1,1 +1,138 @@
+================================================================
+                     NEWSGENIE — PROJECT DESCRIPTION
+================================================================
 
+PROJECT NAME   : NewsGenie
+TYPE           : AI-Powered News & Fact-Checking Agent
+INTERFACE      : Streamlit Web App
+TECH STACK     : Python, LangGraph, LangChain, Groq (LLaMA 3.1), Tavily Search, Streamlit
+
+----------------------------------------------------------------
+OVERVIEW
+----------------------------------------------------------------
+
+NewsGenie is an intelligent conversational AI agent built with
+LangGraph that can handle three types of user interactions —
+general chat, latest news retrieval, and fact verification.
+
+The agent automatically detects the intent behind every user
+message and routes it to the most appropriate pipeline, delivering
+accurate, real-time, and context-aware responses through a clean
+and modern Streamlit interface.
+
+----------------------------------------------------------------
+HOW IT WORKS
+----------------------------------------------------------------
+
+Every user message passes through a multi-node LangGraph pipeline:
+
+  1. CATEGORY NODE
+     The user's message is first sent to a routing LLM that
+     classifies the intent into one of three categories:
+       - general  →  casual chat, coding, AI questions
+       - news     →  latest headlines and current affairs
+       - fact     →  verifying statements and claims
+
+  2. ROUTER
+     Based on the detected category, the graph conditionally
+     routes the message to the correct processing node.
+
+  3. PROCESSING NODES
+
+     General Chat Node
+     Handles everyday conversation using the LLM's built-in
+     knowledge. No web search is needed here.
+
+     Latest News Node
+     Performs a real-time web search using the Tavily Search API,
+     then summarises the results into clear, structured headlines
+     with key details and a short summary.
+
+     Fact Check Node
+     Searches the web for supporting evidence and returns a
+     structured verdict — True, False, Misleading, or Partially
+     True — along with reasons and cited evidence.
+
+  4. MEMORY
+     The graph uses LangGraph's InMemorySaver checkpointer to
+     maintain full conversation history across turns. Each session
+     is identified by a unique thread_id, allowing multiple
+     independent conversations to run simultaneously.
+
+----------------------------------------------------------------
+KEY FEATURES
+----------------------------------------------------------------
+
+  - Automatic intent detection and smart routing
+  - Real-time news retrieval via Tavily Search API
+  - AI-powered fact checking with structured verdicts
+  - Persistent multi-turn memory per session
+  - Multiple session support via thread IDs
+  - Dark-themed Streamlit UI with category badges
+  - Clean modular code — graph logic and UI are separate files
+
+----------------------------------------------------------------
+PROJECT STRUCTURE
+----------------------------------------------------------------
+
+  newsgenie_with_memory.py   →  Core agent: LangGraph graph,
+                                nodes, tools, memory, and
+                                agent_response() helper
+
+  app.py                     →  Streamlit frontend that imports
+                                the graph and renders the chat UI
+
+  .env                       →  API keys (GROQ_API_KEY,
+                                TAVILY_API_KEY)
+
+----------------------------------------------------------------
+DEPENDENCIES
+----------------------------------------------------------------
+
+  langchain
+  langchain-groq
+  langchain-tavily
+  langgraph
+  streamlit
+  python-dotenv
+
+  Install with:
+  pip install langchain langchain-groq langchain-tavily langgraph streamlit python-dotenv
+
+----------------------------------------------------------------
+HOW TO RUN
+----------------------------------------------------------------
+
+  1. Add your API keys to a .env file:
+
+       GROQ_API_KEY=your_groq_key_here
+       TAVILY_API_KEY=your_tavily_key_here
+
+  2. Place newsgenie_with_memory.py and app.py in the same folder.
+
+  3. Run the Streamlit app:
+
+       streamlit run app.py
+
+  4. Open your browser at http://localhost:8501
+
+----------------------------------------------------------------
+MODELS USED
+----------------------------------------------------------------
+
+  LLM       :  LLaMA 3.1 8B Instant  (via Groq)
+  Search    :  Tavily Search API  (max 5 results per query)
+
+----------------------------------------------------------------
+EXAMPLE QUERIES
+----------------------------------------------------------------
+
+  General   →  "Hello! What can you do?"
+  News      →  "What is the latest news about AI today?"
+  Fact      →  "Did humans land on Mars?"
+  News      →  "Tell me yesterday's top cricket headlines."
+  Fact      →  "Is the Great Wall of China visible from space?"
+
+================================================================
+                         END OF DOCUMENT
+================================================================
